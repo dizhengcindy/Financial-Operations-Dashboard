@@ -1,0 +1,26 @@
+# Financial Operations Dashboard
+
+## Database Design
+
+### Users Table
+columns
+- id (uuid, primary key)
+- name (text, not null)
+- email (text, not null, unique)
+- password_hash (text, not null)
+- created_at (timestamp)
+- updated_at (timestamp)
+
+### Accounts Table
+columns
+- id (uuid, primary key)
+- user_id (uuid, foreign key -> users.id)
+- type (enum, not null)
+- name (text)
+- balance (numeric, default 0)
+- created_at (timestamp)
+- updated_at (timestamp)
+
+indexes
+- index(user_id, created_at)
+
