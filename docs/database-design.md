@@ -24,3 +24,28 @@ columns
 indexes
 - index(user_id, created_at)
 
+### transactions
+- id (uuid, primary key)
+- account_id (uuid, FK → accounts.id)
+- category_id (uuid, FK → categories.id)
+- amount (numeric)
+- merchant (text)
+- description (text)
+- transaction_date (timestamp)
+- created_at (timestamp)
+- updated_at (timestamp)
+
+indexes
+- index(account_id, transaction_date)
+
+
+### categories
+- id (uuid, primary key)
+- user_id (uuid, FK → users.id)
+- name (text)
+- description (text)
+- created_at (timestamp)
+- updated_at (timestamp)
+
+indexes
+- index(account_id, category_id)
